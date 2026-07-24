@@ -9,7 +9,7 @@ local incsearch_state = {}
 local function _ffi()
   if not C then
     local ffi = require("ffi")
-    if vim.fn.has("nvim-0.13") then
+    if vim.fn.has("nvim-0.13") == 1 then
       ffi.cdef([[
       typedef struct {
         bool hl_match;
@@ -40,7 +40,7 @@ local function _ffi()
 end
 
 local function _get_search_match_lines()
-  if vim.fn.has("nvim-0.13") then
+  if vim.fn.has("nvim-0.13") == 1 then
     return C.Search.match_lines
   else
     return C.search_match_lines
@@ -48,7 +48,7 @@ local function _get_search_match_lines()
 end
 
 local function _set_search_match_lines(value)
-  if vim.fn.has("nvim-0.13") then
+  if vim.fn.has("nvim-0.13") == 1 then
     C.Search.match_lines = value
   else
     C.search_match_lines = value
@@ -56,7 +56,7 @@ local function _set_search_match_lines(value)
 end
 
 local function _get_search_match_endcol()
-  if vim.fn.has("nvim-0.13") then
+  if vim.fn.has("nvim-0.13") == 1 then
     return C.Search.match_endcol
   else
     return C.search_match_endcol
@@ -64,7 +64,7 @@ local function _get_search_match_endcol()
 end
 
 local function _set_search_match_endcol(value)
-  if vim.fn.has("nvim-0.13") then
+  if vim.fn.has("nvim-0.13") == 1 then
     C.Search.match_endcol = value
   else
     C.search_match_endcol = value
